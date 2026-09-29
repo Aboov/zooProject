@@ -12,3 +12,4 @@
 /home/aboov/ZooProject/zooProject/obj/Debug/net8.0/zooProject.pdb
 /home/aboov/ZooProject/zooProject/obj/Debug/net8.0/zooProject.genruntimeconfig.cache
 /home/aboov/ZooProject/zooProject/obj/Debug/net8.0/ref/zooProject.dll
+/home/aboov/ZooProject/zooProject/obj/Debug/net8.0/zooProject.sourcelink.json
