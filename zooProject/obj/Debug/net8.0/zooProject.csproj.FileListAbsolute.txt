@@ -1,0 +1,14 @@
+/home/aboov/ZooProject/zooProject/bin/Debug/net8.0/zooProject
+/home/aboov/ZooProject/zooProject/bin/Debug/net8.0/zooProject.deps.json
+/home/aboov/ZooProject/zooProject/bin/Debug/net8.0/zooProject.runtimeconfig.json
+/home/aboov/ZooProject/zooProject/bin/Debug/net8.0/zooProject.dll
+/home/aboov/ZooProject/zooProject/bin/Debug/net8.0/zooProject.pdb
+/home/aboov/ZooProject/zooProject/obj/Debug/net8.0/zooProject.GeneratedMSBuildEditorConfig.editorconfig
+/home/aboov/ZooProject/zooProject/obj/Debug/net8.0/zooProject.AssemblyInfoInputs.cache
+/home/aboov/ZooProject/zooProject/obj/Debug/net8.0/zooProject.AssemblyInfo.cs
+/home/aboov/ZooProject/zooProject/obj/Debug/net8.0/zooProject.csproj.CoreCompileInputs.cache
+/home/aboov/ZooProject/zooProject/obj/Debug/net8.0/zooProject.dll
+/home/aboov/ZooProject/zooProject/obj/Debug/net8.0/refint/zooProject.dll
+/home/aboov/ZooProject/zooProject/obj/Debug/net8.0/zooProject.pdb
+/home/aboov/ZooProject/zooProject/obj/Debug/net8.0/zooProject.genruntimeconfig.cache
+/home/aboov/ZooProject/zooProject/obj/Debug/net8.0/ref/zooProject.dll
