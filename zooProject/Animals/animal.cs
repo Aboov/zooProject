@@ -1,16 +1,21 @@
-public abstract class Animal
+public abstract class Animal : ISerializeable
 {
     protected string Name { get; set; }
     protected int Age { get; set; }
     protected GenderEnum Gender { get; set; }
     protected string FavoriteHuman { get; set; }
 
-    Animal(string name, int age, GenderEnum gender, string FavoriteHuman)
+    protected Animal(string name, int age, GenderEnum gender, string favoriteHuman)
     {
-        this.Name = name;
-        this.Age = age;
-        this.Gender = gender;
-        this.FavoriteHuman = FavoriteHuman;
+        Name = name;
+        Age = age;
+        Gender = gender;
+        FavoriteHuman = favoriteHuman;
     }
 
+    public string serialize()
+    {
+        //TODO: implement the serlizer
+        return $"\"type\": \"{Name}\",\n \"age\":{Age},\n";
+    }
 }

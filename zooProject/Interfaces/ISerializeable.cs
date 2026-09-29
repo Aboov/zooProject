@@ -1,4 +1,4 @@
 public interface ISerializeable
 {
-    void serialize();
+    string serialize();
 }
