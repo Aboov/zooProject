@@ -1,0 +1,1 @@
+public record struct Rock(double height, double weight);
