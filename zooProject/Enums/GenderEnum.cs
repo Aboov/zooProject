@@ -1,5 +1,5 @@
 public enum GenderEnum
 {
-    Female, 
-    Male, 
+    Female,
+    Male,
 }
