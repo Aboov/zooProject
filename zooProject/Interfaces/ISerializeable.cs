@@ -1,4 +1,4 @@
 public interface ISerializeable
 {
-    string serialize();
+    Dictionary<string, object> serialize();
 }

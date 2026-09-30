@@ -1,3 +1,5 @@
+using System.Runtime.Serialization;
+
 public abstract class Animal : ISerializeable
 {
     protected string Name { get; set; }
@@ -13,9 +15,16 @@ public abstract class Animal : ISerializeable
         FavoriteHuman = favoriteHuman;
     }
 
-    public string serialize()
+    public virtual Dictionary<string, object> serialize()
     {
-        //TODO: implement the serlizer
-        return $"\"type\": \"{Name}\",\n \"age\":{Age},\n";
+        Dictionary<string, object> serlizedObject = new Dictionary<string, object>{
+        { "name", Name },
+        { "age", Age },
+        { "gender", Gender },
+        { "FavoriteHuman", FavoriteHuman }
+        };
+        return serlizedObject;
     }
+
+
 }

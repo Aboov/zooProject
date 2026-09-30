@@ -8,4 +8,11 @@ public sealed class Tiger : Animal
         Stripes = stripes;
         HumansEaten = humansEaten;
     }
+    public override Dictionary<string, object> serialize()
+    {
+        Dictionary<string, object> serializedTiger = base.serialize();
+        serializedTiger.Add("stripes", Stripes);
+        serializedTiger.Add("humansEaten", HumansEaten);
+        return serializedTiger;
+    }
 }

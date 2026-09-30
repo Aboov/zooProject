@@ -10,4 +10,12 @@ public sealed class Elephant : Animal
         TrunkLength = trunkLength;
         Tusks = tusks;
     }
+
+    public override Dictionary<string, object> serialize()
+    {
+        Dictionary<string, object> serializedElephant = base.serialize();
+        serializedElephant.Add("trunkLength", TrunkLength);
+        serializedElephant.Add("tusks", Tusks);
+        return serializedElephant;
+    }
 }

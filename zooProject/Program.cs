@@ -1,2 +1,7 @@
 ﻿Console.WriteLine("hello world");
-Elephant banan = new Elephant(3, 3, "ohav", 12, GenderEnum.Female, "ohav");
+Chameleon banan = new Chameleon("ohav", 3, GenderEnum.Female, "ohav", "blue");
+var result = banan.serialize();
+foreach (var item in result)
+{
+    Console.WriteLine("{0} > {1}", item.Key, item.Value);
+}

@@ -8,4 +8,12 @@ public sealed class Shark : Animal
         SharkType = sharkType;
         IsLawyer = isLawyer;
     }
+
+    public override Dictionary<string, object> serialize()
+    {
+        Dictionary<string, object> serializedShark = base.serialize();
+        serializedShark.Add("sharkType", SharkType);
+        serializedShark.Add("isLawyer", IsLawyer);
+        return serializedShark;
+    }
 }

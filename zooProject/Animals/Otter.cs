@@ -7,4 +7,10 @@ public sealed class Otter : Animal
     {
         FavoriteRock = favoriteRock;
     }
+    public override Dictionary<string, object> serialize()
+    {
+        Dictionary<string, object> serializedOtter = base.serialize();
+        serializedOtter.Add("FavoriteRock", FavoriteRock);
+        return serializedOtter;
+    }
 }
