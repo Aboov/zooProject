@@ -5,7 +5,7 @@ public sealed class Serlizer
     {
         this.SerlizeStretegy = serlizeStretegy;
     }
-    public string SerlizeDictionary(ISerializeable[] serlizeable)
+    public string Serlize(ISerializeable[] serlizeable)
     {
         return SerlizeStretegy.serialize(serlizeable);
     }
