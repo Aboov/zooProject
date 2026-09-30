@@ -10,8 +10,8 @@ animals[3] = banan;
 animals[4] = otter;
 
 
-JsonSerlizer jsonSerlizer = new JsonSerlizer();
+CsvSerlizer jsonSerlizer = new CsvSerlizer(["name", "age", "gender", "favHuman"]);
 Serlizer ser = new Serlizer(jsonSerlizer);
 
-IO.CreateFile("hello.json");
-IO.WriteToFile("hello.json", ser.Serlize(animals));
+IO.CreateFile("hello.csv");
+IO.WriteToFile("hello.csv", ser.Serlize(animals));
