@@ -2,17 +2,17 @@ using System.Drawing;
 
 public sealed class Chameleon : Animal
 {
-    private string Color;
+    private string _color;
 
     public Chameleon(string name, int age, GenderEnum gender, string favoriteHuman, string color) : base(name, age, gender, favoriteHuman)
     {
-        Color = color;
+        _color = color;
     }
 
     public override Dictionary<string, object> serialize()
     {
         Dictionary<string, object> serializedChamelon = base.serialize();
-        serializedChamelon.Add("color", Color);
+        serializedChamelon.Add("color", _color);
         return serializedChamelon;
     }
 }
