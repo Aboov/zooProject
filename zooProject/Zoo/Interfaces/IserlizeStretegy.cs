@@ -1,4 +1,4 @@
-public interface serlizeStretegy
+public interface ISerlizeStretegy
 {
     string serialize(ISerializeable[] serializeable);
 }

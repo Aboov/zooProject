@@ -1,6 +1,6 @@
 using System.Text;
 
-public sealed class CsvSerlizer : serlizeStretegy
+public sealed class CsvSerlizer : ISerlizeStretegy
 {
     public string serialize(ISerializeable[] serializeables)
     {
