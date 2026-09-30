@@ -26,7 +26,6 @@ public sealed class CsvSerlizer : ISerlizeStretegy
             jsonFormat.Append(serlizeDictionary(serlizedObject));
         }
 
-
         return jsonFormat.ToString();
     }
 
