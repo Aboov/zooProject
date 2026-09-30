@@ -1,4 +1,4 @@
-public struct Rock
+public struct Rock : ISerializeable
 {
     public int Height;
     public int Weight;
@@ -9,5 +9,13 @@ public struct Rock
         Weight = weight;
     }
 
-
+    public Dictionary<string, object> serialize()
+    {
+        Dictionary<string, object> serializedRock = new Dictionary<string, object>()
+        {
+            {"height",Height},
+            {"weight",Weight}
+        };
+        return serializedRock;
+    }
 }

@@ -10,21 +10,39 @@ public sealed class JsonSerlizer : serlizeStretegy
 
         foreach (ISerializeable serlized in serializeables)
         {
-            jsonFormat.Append("{\n");
             Dictionary<string, object> serlizedObject = serlized.serialize();
 
-            foreach (var kvp in serlizedObject)
-            {
-                string val = kvp.Value is string ? $"\"{kvp.Value}\"" : (kvp.Value?.ToString() ?? "");
-                jsonFormat.Append($"\"{kvp.Key}\": {val},\n");
-            }
-
-            jsonFormat.Remove(jsonFormat.Length - 2, 1);
-            jsonFormat.Append("},\n");
+            jsonFormat.Append(serlizeDictionary(serlizedObject));
         }
 
         jsonFormat.Remove(jsonFormat.Length - 2, 1);
         jsonFormat.Append("]");
+
+        return jsonFormat.ToString();
+    }
+
+    private string serlizeDictionary(Dictionary<string, object> dictionaryToSerlize)
+    {
+        StringBuilder jsonFormat = new StringBuilder();
+        jsonFormat.Append("{\n");
+
+        foreach (var kvp in dictionaryToSerlize)
+        {
+            StringBuilder val = new StringBuilder();
+            if (kvp.Value is ISerializeable serializableObj)
+            {
+                val.Append(serlizeDictionary(serializableObj.serialize()));
+                val.Remove(val.Length - 2, 2);
+            }
+            else
+            {
+                val.Append(kvp.Value is string ? $"\"{kvp.Value}\"" : (kvp.Value?.ToString() ?? ""));
+            }
+            jsonFormat.Append($"\"{kvp.Key}\": {val},\n");
+        }
+
+        jsonFormat.Remove(jsonFormat.Length - 2, 1);
+        jsonFormat.Append("},\n");
 
         return jsonFormat.ToString();
     }

@@ -27,10 +27,8 @@ public abstract class Animal : ISerializeable
         { "name", Name },
         { "age", Age },
         { "gender", (int)Gender },
-        { "FavoriteHuman", FavoriteHuman }
+        { "FavoriteHuman", FavoriteHuman}
         };
         return serlizedObject;
     }
-
-
 }
