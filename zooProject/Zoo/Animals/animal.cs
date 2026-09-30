@@ -9,6 +9,12 @@ public abstract class Animal : ISerializeable
 
     protected Animal(string name, int age, GenderEnum gender, string favoriteHuman)
     {
+        if (name[0] != favoriteHuman[0])
+        {
+            throw new Exception("invalid name -> the name of the human must " +
+            "with the first letter of the animal's name ");
+        }
+
         Name = name;
         Age = age;
         Gender = gender;
@@ -20,7 +26,7 @@ public abstract class Animal : ISerializeable
         Dictionary<string, object> serlizedObject = new Dictionary<string, object>{
         { "name", Name },
         { "age", Age },
-        { "gender", Gender },
+        { "gender", (int)Gender },
         { "FavoriteHuman", FavoriteHuman }
         };
         return serlizedObject;

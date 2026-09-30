@@ -1,4 +1,5 @@
 using System.Text;
+using System.Text.Json;
 
 public sealed class JsonSerlizer : serlizeStretegy
 {
@@ -15,12 +16,16 @@ public sealed class JsonSerlizer : serlizeStretegy
             foreach (var kvp in serlizedObject)
             {
                 string val = kvp.Value is string ? $"\"{kvp.Value}\"" : (kvp.Value?.ToString() ?? "");
-                jsonFormat.Append($"\"{kvp.Key}\": {val} \n");
+                jsonFormat.Append($"\"{kvp.Key}\": {val},\n");
             }
+
+            jsonFormat.Remove(jsonFormat.Length - 2, 1);
             jsonFormat.Append("},\n");
         }
 
+        jsonFormat.Remove(jsonFormat.Length - 2, 1);
         jsonFormat.Append("]");
+
         return jsonFormat.ToString();
     }
 }

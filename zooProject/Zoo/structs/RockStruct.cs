@@ -1,1 +1,13 @@
-public record struct Rock(double height, double weight);
+public struct Rock
+{
+    public int Height;
+    public int Weight;
+
+    public Rock(int height, int weight)
+    {
+        Height = height;
+        Weight = weight;
+    }
+
+
+}
