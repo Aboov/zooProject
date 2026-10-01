@@ -9,30 +9,29 @@ public sealed class CsvSerlizer : ISerlizeStretegy
     }
     public string serialize(ISerializeable[] serializeables)
     {
-        StringBuilder jsonFormat = new StringBuilder();
+        StringBuilder csvFormat = new StringBuilder();
 
-        jsonFormat.Append($"{string.Join(", ", _columnHeaders)}\n");
+        csvFormat.Append($"{string.Join(",", _columnHeaders)}\n");
         bool isFirst = true;
 
         foreach (ISerializeable serlized in serializeables)
         {
             if (!isFirst)
             {
-                jsonFormat.Append("\n");
+                csvFormat.Append("\n");
             }
             isFirst = false;
             Dictionary<string, object> serlizedObject = serlized.serialize();
 
-            jsonFormat.Append(serlizeDictionary(serlizedObject));
+            csvFormat.Append(serlizeDictionary(serlizedObject));
         }
 
-        return jsonFormat.ToString();
+        return csvFormat.ToString();
     }
 
     private string serlizeDictionary(Dictionary<string, object> dictionaryToSerlize)
     {
-        StringBuilder jsonFormat = new StringBuilder();
-        jsonFormat.Append("");
+        StringBuilder csvFormat = new StringBuilder();
 
         bool isFirst = true;
 
@@ -40,7 +39,7 @@ public sealed class CsvSerlizer : ISerlizeStretegy
         {
             if (!isFirst)
             {
-                jsonFormat.Append(",");
+                csvFormat.Append(",");
             }
             isFirst = false;
 
@@ -53,11 +52,9 @@ public sealed class CsvSerlizer : ISerlizeStretegy
             {
                 val.Append(kvp.Value);
             }
-            jsonFormat.Append(val);
+            csvFormat.Append(val);
         }
 
-        jsonFormat.Append("");
-
-        return jsonFormat.ToString();
+        return csvFormat.ToString();
     }
 }
