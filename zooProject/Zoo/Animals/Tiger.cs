@@ -1,3 +1,6 @@
+using System.Collections;
+using System.Collections.Specialized;
+
 public sealed class Tiger : Animal
 {
     private int _stripes;
@@ -8,9 +11,18 @@ public sealed class Tiger : Animal
         _stripes = stripes;
         _humansEaten = humansEaten;
     }
-    public override Dictionary<string, object> serialize()
+    public override OrderedDictionary serialize()
     {
-        Dictionary<string, object> serializedTiger = base.serialize();
+        OrderedDictionary serializedTiger = new OrderedDictionary()
+        {
+            {"type","Tiger"}
+        };
+
+        foreach (DictionaryEntry entry in base.serialize())
+        {
+            serializedTiger.Add(entry.Key, entry.Value);
+        }
+
         serializedTiger.Add("stripes", _stripes);
         serializedTiger.Add("humansEaten", _humansEaten);
         return serializedTiger;

@@ -1,8 +1,10 @@
+using System.Collections.Specialized;
+
 public record struct Rock(int Height, int Weight) : ISerializeable
 {
-    public Dictionary<string, object> serialize()
+    public OrderedDictionary serialize()
     {
-        Dictionary<string, object> serializedRock = new Dictionary<string, object>()
+        OrderedDictionary serializedRock = new OrderedDictionary()
         {
             {"height",Height},
             {"weight",Weight}

@@ -1,3 +1,4 @@
+using System.Collections.Specialized;
 using System.Runtime.Serialization;
 
 public abstract class Animal : ISerializeable
@@ -21,9 +22,9 @@ public abstract class Animal : ISerializeable
         FavoriteHuman = favoriteHuman;
     }
 
-    public virtual Dictionary<string, object> serialize()
+    public virtual OrderedDictionary serialize()
     {
-        Dictionary<string, object> serlizedObject = new Dictionary<string, object>{
+        OrderedDictionary serlizedObject = new OrderedDictionary(){
         { "name", Name },
         { "age", Age },
         { "gender", (int)Gender },

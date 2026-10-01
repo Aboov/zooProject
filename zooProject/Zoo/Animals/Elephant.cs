@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Specialized;
 using System.Drawing;
 
 public sealed class Elephant : Animal
@@ -11,9 +13,18 @@ public sealed class Elephant : Animal
         _tusks = tusks;
     }
 
-    public override Dictionary<string, object> serialize()
+    public override OrderedDictionary serialize()
     {
-        Dictionary<string, object> serializedElephant = base.serialize();
+
+        OrderedDictionary serializedElephant = new OrderedDictionary()
+        {
+            {"type","Elephant"}
+        };
+
+        foreach (DictionaryEntry entry in base.serialize())
+        {
+            serializedElephant.Add(entry.Key, entry.Value);
+        }
         serializedElephant.Add("trunkLength", _trunkLength);
         serializedElephant.Add("tusks", _tusks);
         return serializedElephant;

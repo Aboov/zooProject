@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Specialized;
 using System.Text;
 using System.Text.Json;
 
@@ -17,7 +19,7 @@ public sealed class JsonSerlizer : ISerlizeStretegy
                 jsonFormat.Append(",\n");
             }
             isFirst = false;
-            Dictionary<string, object> serlizedObject = serlized.serialize();
+            OrderedDictionary serlizedObject = serlized.serialize();
 
             jsonFormat.Append(serlizeDictionary(serlizedObject));
         }
@@ -27,14 +29,14 @@ public sealed class JsonSerlizer : ISerlizeStretegy
         return jsonFormat.ToString();
     }
 
-    private string serlizeDictionary(Dictionary<string, object> dictionaryToSerlize)
+    private string serlizeDictionary(OrderedDictionary dictionaryToSerlize)
     {
         StringBuilder jsonFormat = new StringBuilder();
         jsonFormat.Append("{\n");
 
         bool isFirst = true;
 
-        foreach (var kvp in dictionaryToSerlize)
+        foreach (DictionaryEntry kvp in dictionaryToSerlize)
         {
             if (!isFirst)
             {

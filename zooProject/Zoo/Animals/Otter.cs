@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Specialized;
 using System.Drawing;
 
 public sealed class Otter : Animal
@@ -7,9 +9,17 @@ public sealed class Otter : Animal
     {
         _favoriteRock = favoriteRock;
     }
-    public override Dictionary<string, object> serialize()
+    public override OrderedDictionary serialize()
     {
-        Dictionary<string, object> serializedOtter = base.serialize();
+        OrderedDictionary serializedOtter = new OrderedDictionary()
+        {
+            {"type","Otter"}
+        };
+
+        foreach (DictionaryEntry entry in base.serialize())
+        {
+            serializedOtter.Add(entry.Key, entry.Value);
+        }
         serializedOtter.Add("favoriteRock", _favoriteRock);
         return serializedOtter;
     }

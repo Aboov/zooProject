@@ -1,4 +1,5 @@
-using System.Drawing;
+using System.Collections;
+using System.Collections.Specialized;
 
 public sealed class Chameleon : Animal
 {
@@ -9,9 +10,17 @@ public sealed class Chameleon : Animal
         _color = color;
     }
 
-    public override Dictionary<string, object> serialize()
+    public override OrderedDictionary serialize()
     {
-        Dictionary<string, object> serializedChamelon = base.serialize();
+        OrderedDictionary serializedChamelon = new OrderedDictionary()
+        {
+            {"type","Chameleon"}
+        };
+
+        foreach (DictionaryEntry entry in base.serialize())
+        {
+            serializedChamelon.Add(entry.Key, entry.Value);
+        }
         serializedChamelon.Add("color", _color);
         return serializedChamelon;
     }

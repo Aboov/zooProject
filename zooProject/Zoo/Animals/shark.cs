@@ -1,3 +1,6 @@
+using System.Collections;
+using System.Collections.Specialized;
+
 public sealed class Shark : Animal
 {
     private SharkTypeEnum _SharkType;
@@ -9,9 +12,17 @@ public sealed class Shark : Animal
         _isLawyer = isLawyer;
     }
 
-    public override Dictionary<string, object> serialize()
+    public override OrderedDictionary serialize()
     {
-        Dictionary<string, object> serializedShark = base.serialize();
+        OrderedDictionary serializedShark = new OrderedDictionary()
+        {
+            {"type","Shark"}
+        };
+
+        foreach (DictionaryEntry entry in base.serialize())
+        {
+            serializedShark.Add(entry.Key, entry.Value);
+        }
         serializedShark.Add("sharkType", _SharkType);
         serializedShark.Add("isLawyer", _isLawyer);
         return serializedShark;
