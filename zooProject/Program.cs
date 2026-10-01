@@ -3,15 +3,17 @@ Animal[] animals = new Animal[5];
 
 Chameleon banan = new Chameleon("ohav", 3, GenderEnum.Female, "ohav", "blue");
 Otter otter = new Otter(new Rock(3, 3), "otter", 13, GenderEnum.Male, "ohav");
-animals[0] = banan;
+Tiger tiger = new Tiger("IAMTIGER", 14, GenderEnum.Male, "IAMOHAVTHETIGER", 3, 9);
+animals[0] = otter;
 animals[1] = banan;
-animals[2] = banan;
-animals[3] = banan;
-animals[4] = otter;
+animals[2] = otter;
+animals[3] = tiger;
+animals[4] = tiger;
 
 
-CsvSerlizer jsonSerlizer = new CsvSerlizer(["name", "age", "gender", "FavoriteHuman"]);
+CsvSerlizer jsonSerlizer = new CsvSerlizer(["Type", "Name", "Age", "Gender", "FavoriteHuman"]);
 Serlizer ser = new Serlizer(jsonSerlizer);
+ser.SerlizeStretegy = new JsonSerlizer();
 
-IO.CreateFile("hello.csv");
-IO.WriteToFile("hello.csv", ser.Serlize(animals));
+IO.CreateFile("hello.json");
+IO.WriteToFile("hello.json", ser.Serlize(animals));
