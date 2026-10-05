@@ -1,0 +1,47 @@
+[
+{
+"type": "Elephant",
+"name": "otter",
+"age": 100,
+"gender": 1,
+"FavoriteHuman": "ohav",
+"trunkLength": 3,
+"tusks": 3
+},
+{
+"type": "Chameleon",
+"name": "ohav",
+"age": 3,
+"gender": 0,
+"FavoriteHuman": "ohav",
+"color": "blue"
+},
+{
+"type": "Otter",
+"name": "otter",
+"age": 100,
+"gender": 1,
+"FavoriteHuman": "ohav",
+"favoriteRock": {
+"height": 3,
+"weight": 3
+}
+},
+{
+"type": "Tiger",
+"name": "otter",
+"age": 100,
+"gender": 1,
+"FavoriteHuman": "ohav",
+"stripes": 3,
+"humansEaten": 3
+},
+{
+"type": "Elephant",
+"name": "otter",
+"age": 100,
+"gender": 1,
+"FavoriteHuman": "ohav",
+"trunkLength": 3,
+"tusks": 3
+}]
