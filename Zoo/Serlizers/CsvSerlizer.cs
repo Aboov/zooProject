@@ -37,7 +37,7 @@ public sealed class CsvSerlizer : ISerlizeStretegy
 
         bool isFirst = true;
 
-        foreach (Dictionary<string, object> kvp in dictionaryToSerlize)
+        foreach (KeyValuePair<string, object> kvp in dictionaryToSerlize)
         {
             if (!isFirst)
             {

@@ -36,14 +36,13 @@ public sealed class JsonSerlizer : ISerlizeStretegy
 
         bool isFirst = true;
 
-        foreach (Dictionary<string, object> kvp in dictionaryToSerlize)
+        foreach (KeyValuePair<string, object> kvp in dictionaryToSerlize)
         {
             if (!isFirst)
             {
                 jsonFormat.Append(",\n");
-                isFirst = false;
             }
-
+            isFirst = false;
 
             StringBuilder val = new StringBuilder();
             if (kvp.Value is ISerializeable serializableObj)
