@@ -13,15 +13,15 @@ public sealed class Elephant : Animal
         _tusks = tusks;
     }
 
-    public sealed override OrderedDictionary serialize()
+    public sealed override Dictionary<string, object> serialize()
     {
 
-        OrderedDictionary serializedElephant = new OrderedDictionary()
+        Dictionary<string, object> serializedElephant = new Dictionary<string, object>()
         {
             {"type","Elephant"}
         };
 
-        foreach (DictionaryEntry entry in base.serialize())
+        foreach (KeyValuePair<string, object> entry in base.serialize())
         {
             serializedElephant.Add(entry.Key, entry.Value);
         }

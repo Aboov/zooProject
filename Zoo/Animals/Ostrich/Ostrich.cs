@@ -11,15 +11,15 @@ public sealed class Ostrich : Animal
         _isHeadInTheGround = isHeadInTheGround;
     }
 
-    public sealed override OrderedDictionary serialize()
+    public sealed override Dictionary<string, object> serialize()
     {
 
-        OrderedDictionary serializedOstrich = new OrderedDictionary()
+        Dictionary<string, object> serializedOstrich = new Dictionary<string, object>()
         {
             {"type","Ostrich"}
         };
 
-        foreach (DictionaryEntry entry in base.serialize())
+        foreach (KeyValuePair<string, object> entry in base.serialize())
         {
             serializedOstrich.Add(entry.Key, entry.Value);
         }

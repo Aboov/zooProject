@@ -1,6 +1,6 @@
 public enum AnimalEnum
 {
-    Chameleon,
+    Chameleon = 1,
     Elephant,
     Otter,
     Shark,

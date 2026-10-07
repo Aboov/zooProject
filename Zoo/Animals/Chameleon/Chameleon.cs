@@ -10,14 +10,14 @@ public sealed class Chameleon : Animal
         _color = color;
     }
 
-    public sealed override OrderedDictionary serialize()
+    public sealed override Dictionary<string, object> serialize()
     {
-        OrderedDictionary serializedChamelon = new OrderedDictionary()
+        Dictionary<string, object> serializedChamelon = new Dictionary<string, object>()
         {
             {"type","Chameleon"}
         };
 
-        foreach (DictionaryEntry entry in base.serialize())
+        foreach (KeyValuePair<string, object> entry in base.serialize())
         {
             serializedChamelon.Add(entry.Key, entry.Value);
         }

@@ -2,5 +2,5 @@ using System.Collections.Specialized;
 
 public interface ISerializeable
 {
-    OrderedDictionary serialize();
+    Dictionary<string, object> serialize();
 }

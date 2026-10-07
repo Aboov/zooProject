@@ -9,18 +9,20 @@ public sealed class Otter : Animal
     {
         _favoriteRock = favoriteRock;
     }
-    public sealed override OrderedDictionary serialize()
+    public sealed override Dictionary<string, object> serialize()
     {
-        OrderedDictionary serializedOtter = new OrderedDictionary()
+        Dictionary<string, object> serializedOtter = new Dictionary<string, object>()
         {
             {"type","Otter"}
         };
 
-        foreach (DictionaryEntry entry in base.serialize())
+        foreach (KeyValuePair<string, object> entry in base.serialize())
         {
             serializedOtter.Add(entry.Key, entry.Value);
         }
+
         serializedOtter.Add("favoriteRock", _favoriteRock);
+
         return serializedOtter;
     }
 }

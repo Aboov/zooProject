@@ -1,6 +1,6 @@
 public enum SharkTypeEnum
 {
-    GreateWhite,
+    GreateWhite = 1,
     HammerHead,
     Loan,
 }

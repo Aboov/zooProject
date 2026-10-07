@@ -23,7 +23,7 @@ public sealed class CsvSerlizer : ISerlizeStretegy
                 csvFormat.Append("\n");
             }
             isFirst = false;
-            OrderedDictionary serlizedObject = serlized.serialize();
+            Dictionary<string, object> serlizedObject = serlized.serialize();
 
             csvFormat.Append(serlizeDictionary(serlizedObject));
         }
@@ -31,13 +31,13 @@ public sealed class CsvSerlizer : ISerlizeStretegy
         return csvFormat.ToString();
     }
 
-    private string serlizeDictionary(OrderedDictionary dictionaryToSerlize)
+    private string serlizeDictionary(Dictionary<string, object> dictionaryToSerlize)
     {
         StringBuilder csvFormat = new StringBuilder();
 
         bool isFirst = true;
 
-        foreach (DictionaryEntry kvp in dictionaryToSerlize)
+        foreach (Dictionary<string, object> kvp in dictionaryToSerlize)
         {
             if (!isFirst)
             {

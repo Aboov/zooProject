@@ -11,9 +11,9 @@ public sealed class Rock : ISerializeable
         _weight = weight;
     }
 
-    public OrderedDictionary serialize()
+    public Dictionary<string, object> serialize()
     {
-        OrderedDictionary serializedRock = new OrderedDictionary()
+        Dictionary<string, object> serializedRock = new Dictionary<string, object>()
         {
             {"height",_height},
             {"weight",_weight}

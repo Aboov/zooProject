@@ -12,7 +12,7 @@ public abstract class Animal : ISerializeable
     {
         if (name[0] != favoriteHuman[0])
         {
-            throw new Exception("invalid name -> the name of the human must " +
+            throw new InvalidNameException("invalid name -> the name of the human must " +
             "with the first letter of the animal's name ");
         }
 
@@ -22,9 +22,9 @@ public abstract class Animal : ISerializeable
         FavoriteHuman = favoriteHuman;
     }
 
-    public virtual OrderedDictionary serialize()
+    public virtual Dictionary<string, object> serialize()
     {
-        OrderedDictionary serlizedObject = new OrderedDictionary(){
+        Dictionary<string, object> serlizedObject = new Dictionary<string, object>(){
         { "name", Name },
         { "age", Age },
         { "gender", (int)Gender },

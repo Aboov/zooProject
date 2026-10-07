@@ -19,7 +19,7 @@ public sealed class JsonSerlizer : ISerlizeStretegy
                 jsonFormat.Append(",\n");
             }
             isFirst = false;
-            OrderedDictionary serlizedObject = serlized.serialize();
+            Dictionary<string, object> serlizedObject = serlized.serialize();
 
             jsonFormat.Append(serlizeDictionary(serlizedObject));
         }
@@ -29,20 +29,21 @@ public sealed class JsonSerlizer : ISerlizeStretegy
         return jsonFormat.ToString();
     }
 
-    private string serlizeDictionary(OrderedDictionary dictionaryToSerlize)
+    private string serlizeDictionary(Dictionary<string, object> dictionaryToSerlize)
     {
         StringBuilder jsonFormat = new StringBuilder();
         jsonFormat.Append("{\n");
 
         bool isFirst = true;
 
-        foreach (DictionaryEntry kvp in dictionaryToSerlize)
+        foreach (Dictionary<string, object> kvp in dictionaryToSerlize)
         {
             if (!isFirst)
             {
                 jsonFormat.Append(",\n");
+                isFirst = false;
             }
-            isFirst = false;
+
 
             StringBuilder val = new StringBuilder();
             if (kvp.Value is ISerializeable serializableObj)
