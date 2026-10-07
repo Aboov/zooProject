@@ -31,7 +31,7 @@ public sealed class JsonSerlizer : ISerlizeStretegy
 
     private string serlizeDictionary(Dictionary<string, object> dictionaryToSerlize)
     {
-        StringBuilder jsonFormat = new StringBuilder();
+        var jsonFormat = new StringBuilder();
         jsonFormat.Append("{\n");
 
         bool isFirst = true;
@@ -44,16 +44,17 @@ public sealed class JsonSerlizer : ISerlizeStretegy
             }
             isFirst = false;
 
-            StringBuilder val = new StringBuilder();
-            if (kvp.Value is ISerializeable serializableObj)
+            string formattedValue = kvp.Value switch
             {
-                val.Append(serlizeDictionary(serializableObj.serialize()));
-            }
-            else
-            {
-                val.Append(kvp.Value is string ? $"\"{kvp.Value}\"" : (kvp.Value?.ToString() ?? ""));
-            }
-            jsonFormat.Append($"\"{kvp.Key}\": {val}");
+                ISerializeable serializableObj => serlizeDictionary(serializableObj.serialize()),
+                string stringObject => $"\"{stringObject}\"",
+                bool booleanObject => booleanObject ? "true" : "false",
+                Enum enumObject => $"\"{enumObject}\"",
+                null => "",
+                _ => kvp.Value.ToString() ?? ""
+            };
+
+            jsonFormat.Append($"\"{kvp.Key}\": {formattedValue}");
         }
 
         jsonFormat.Append("\n}");

@@ -12,8 +12,8 @@ public abstract class Animal : ISerializeable
     {
         if (name[0] != favoriteHuman[0])
         {
-            throw new InvalidNameException("invalid name -> the name of the human must " +
-            "with the first letter of the animal's name ");
+            throw new InvalidNameException($"Invalid name -> The name {name} and the human name {favoriteHuman}" +
+            " are incompatible, the first letter of both must be the same");
         }
 
         Name = name;
@@ -28,7 +28,7 @@ public abstract class Animal : ISerializeable
         { "name", Name },
         { "age", Age },
         { "gender", (int)Gender },
-        { "FavoriteHuman", FavoriteHuman}
+        { "favoriteHuman", FavoriteHuman}
         };
         return serlizedObject;
     }
