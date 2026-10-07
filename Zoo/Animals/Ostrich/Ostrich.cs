@@ -4,11 +4,11 @@ using System.Drawing;
 
 public sealed class Ostrich : Animal
 {
-    private bool _isHeadInTheGround;
+    private bool IsHeadInTheGround;
 
     public Ostrich(string name, int age, GenderEnum gender, string favoriteHuman, bool isHeadInTheGround) : base(name, age, gender, favoriteHuman)
     {
-        _isHeadInTheGround = isHeadInTheGround;
+        IsHeadInTheGround = isHeadInTheGround;
     }
 
     public sealed override Dictionary<string, object> serialize()
@@ -23,7 +23,7 @@ public sealed class Ostrich : Animal
         {
             serializedOstrich.Add(entry.Key, entry.Value);
         }
-        serializedOstrich.Add("isHeadInTheGround", _isHeadInTheGround);
+        serializedOstrich.Add("isHeadInTheGround", IsHeadInTheGround);
         return serializedOstrich;
     }
 }

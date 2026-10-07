@@ -3,13 +3,13 @@ using System.Collections.Specialized;
 
 public sealed class Tiger : Animal
 {
-    private int _stripes;
-    private int _humansEaten;
+    private int Stripes;
+    private int HumansEaten;
 
     public Tiger(string name, int age, GenderEnum gender, string favoriteHuman, int humansEaten, int stripes) : base(name, age, gender, favoriteHuman)
     {
-        _stripes = stripes;
-        _humansEaten = humansEaten;
+        Stripes = stripes;
+        HumansEaten = humansEaten;
     }
     public sealed override Dictionary<string, object> serialize()
     {
@@ -23,8 +23,8 @@ public sealed class Tiger : Animal
             serializedTiger.Add(entry.Key, entry.Value);
         }
 
-        serializedTiger.Add("stripes", _stripes);
-        serializedTiger.Add("humansEaten", _humansEaten);
+        serializedTiger.Add("stripes", Stripes);
+        serializedTiger.Add("humansEaten", HumansEaten);
         return serializedTiger;
     }
 }

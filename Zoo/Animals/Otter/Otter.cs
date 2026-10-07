@@ -4,10 +4,10 @@ using System.Drawing;
 
 public sealed class Otter : Animal
 {
-    private Rock _favoriteRock;
+    private Rock FavoriteRock;
     public Otter(string name, int age, GenderEnum gender, string favoriteHuman, Rock favoriteRock) : base(name, age, gender, favoriteHuman)
     {
-        _favoriteRock = favoriteRock;
+        FavoriteRock = favoriteRock;
     }
     public sealed override Dictionary<string, object> serialize()
     {
@@ -21,7 +21,7 @@ public sealed class Otter : Animal
             serializedOtter.Add(entry.Key, entry.Value);
         }
 
-        serializedOtter.Add("favoriteRock", _favoriteRock);
+        serializedOtter.Add("favoriteRock", FavoriteRock);
 
         return serializedOtter;
     }

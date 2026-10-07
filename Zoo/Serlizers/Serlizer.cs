@@ -1,7 +1,7 @@
 public sealed class Serlizer
 {
-    public ISerlizeStretegy SerlizeStretegy { get; set; }
-    public Serlizer(ISerlizeStretegy serlizeStretegy)
+    public ISerializefiles SerlizeStretegy { get; set; }
+    public Serlizer(ISerializefiles serlizeStretegy)
     {
         this.SerlizeStretegy = serlizeStretegy;
     }

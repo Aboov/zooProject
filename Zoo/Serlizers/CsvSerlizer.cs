@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Specialized;
 using System.Text;
 
-public sealed class CsvSerlizer : ISerlizeStretegy
+public sealed class CsvSerlizer : ISerializefiles
 {
-    private string[] _columnHeaders;
+    private string[] ColumnHeaders;
     public CsvSerlizer(string[] columnHeaders)
     {
-        _columnHeaders = columnHeaders;
+        ColumnHeaders = columnHeaders;
     }
     public string serialize(ISerializeable[] serializeables)
     {
         StringBuilder csvFormat = new StringBuilder();
 
-        csvFormat.Append($"{string.Join(",", _columnHeaders)}\n");
+        csvFormat.Append($"{string.Join(",", ColumnHeaders)}\n");
         bool isFirst = true;
 
         foreach (ISerializeable serlized in serializeables)
@@ -45,16 +45,14 @@ public sealed class CsvSerlizer : ISerlizeStretegy
             }
             isFirst = false;
 
-            StringBuilder val = new StringBuilder();
-            if (kvp.Value is ISerializeable serializableObj)
+            string formattedValue = kvp.Value switch
             {
-                val.Append(serlizeDictionary(serializableObj.serialize()));
-            }
-            else
-            {
-                val.Append(kvp.Value);
-            }
-            csvFormat.Append(val);
+                ISerializeable serializableObj => serlizeDictionary(serializableObj.serialize()),
+                string stringObject => stringObject,
+                null => "",
+                _ => kvp.Value.ToString() ?? ""
+            };
+            csvFormat.Append(formattedValue);
         }
 
         return csvFormat.ToString();

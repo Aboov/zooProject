@@ -3,11 +3,11 @@ using System.Collections.Specialized;
 
 public sealed class Chameleon : Animal
 {
-    private string _color;
+    private string Color;
 
     public Chameleon(string name, int age, GenderEnum gender, string favoriteHuman, string color) : base(name, age, gender, favoriteHuman)
     {
-        _color = color;
+        Color = color;
     }
 
     public sealed override Dictionary<string, object> serialize()
@@ -21,7 +21,7 @@ public sealed class Chameleon : Animal
         {
             serializedChamelon.Add(entry.Key, entry.Value);
         }
-        serializedChamelon.Add("color", _color);
+        serializedChamelon.Add("color", Color);
         return serializedChamelon;
     }
 }

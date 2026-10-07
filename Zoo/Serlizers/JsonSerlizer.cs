@@ -3,7 +3,7 @@ using System.Collections.Specialized;
 using System.Text;
 using System.Text.Json;
 
-public sealed class JsonSerlizer : ISerlizeStretegy
+public sealed class JsonSerlizer : ISerializefiles
 {
     public string serialize(ISerializeable[] serializeables)
     {
@@ -33,7 +33,6 @@ public sealed class JsonSerlizer : ISerlizeStretegy
     {
         var jsonFormat = new StringBuilder();
         jsonFormat.Append("{\n");
-
         bool isFirst = true;
 
         foreach (KeyValuePair<string, object> kvp in dictionaryToSerlize)

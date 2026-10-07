@@ -4,13 +4,13 @@ using System.Drawing;
 
 public sealed class Elephant : Animal
 {
-    private int _trunkLength;
-    private int _tusks;
+    private int TrunkLength;
+    private int Tusks;
 
     public Elephant(string name, int age, GenderEnum gender, string favoriteHuman, int trunkLength, int tusks) : base(name, age, gender, favoriteHuman)
     {
-        _trunkLength = trunkLength;
-        _tusks = tusks;
+        TrunkLength = trunkLength;
+        Tusks = tusks;
     }
 
     public sealed override Dictionary<string, object> serialize()
@@ -25,8 +25,8 @@ public sealed class Elephant : Animal
         {
             serializedElephant.Add(entry.Key, entry.Value);
         }
-        serializedElephant.Add("trunkLength", _trunkLength);
-        serializedElephant.Add("tusks", _tusks);
+        serializedElephant.Add("trunkLength", TrunkLength);
+        serializedElephant.Add("tusks", Tusks);
         return serializedElephant;
     }
 }

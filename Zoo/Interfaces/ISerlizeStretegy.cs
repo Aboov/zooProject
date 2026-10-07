@@ -1,4 +1,4 @@
-public interface ISerlizeStretegy
+public interface ISerializefiles
 {
     string serialize(ISerializeable[] serializeable);
 }
